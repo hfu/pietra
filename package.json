@@ -1,0 +1,29 @@
+{
+  "name": "pietra",
+  "version": "1.0.0",
+  "description": "tsunagi plus modulalized mbtiles server as in tile-block",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hfu/pietra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/hfu/pietra/issues"
+  },
+  "homepage": "https://github.com/hfu/pietra#readme",
+  "dependencies": {
+    "@mapbox/mbtiles": "^0.10.0",
+    "config": "^2.0.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "hjson": "^3.1.1",
+    "morgan": "^1.9.1",
+    "spdy": "^3.4.7"
+  }
+}

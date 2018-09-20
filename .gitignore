@@ -1,3 +1,13 @@
+mbtiles
+config
+htdocs
+*.mbtiles
+*.mbtiles-journal
+*.ndjson
+package-lock.json
+*.stderr
+*.stdout
+
 # Logs
 logs
 *.log
