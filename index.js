@@ -91,7 +91,7 @@ app.get(`${servicePath}/resources/sprites/sprite.png`, (req, res) => {
 
 const selectFile = (z, x, y) => {
   if (z < 6) {
-    return '5.mbtiles'
+    return '0-0-0.mbtiles'
   } else {
     return `6-${x >> (z - 6)}-${y >> (z - 6)}.mbtiles`
   }
