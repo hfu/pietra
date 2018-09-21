@@ -89,6 +89,18 @@ app.get(`${servicePath}/resources/sprites/sprite.png`, (req, res) => {
   res.send(fs.readFileSync(config.get('sprite') + '.png'))
 })
 
+app.get(`${servicePath}/resources/fonts/:fontstack/:range.pbf`, (req, res) => {
+  res.set('content-type', 'application/x-protpbuf')
+  res.set('content-encoding', 'gzip')
+  res.send(fs.readFileSync(`fonts/${req.params.fontstack}/${req.params.range}.pbf.gz`))
+})
+
+app.get(`/fonts/:fontstack/:range.pbf`, (req, res) => {
+  res.set('content-type', 'application/x-protpbuf')
+  res.set('content-encoding', 'gzip')
+  res.send(fs.readFileSync(`fonts/${req.params.fontstack}/${req.params.range}.pbf.gz`))
+})
+
 const selectFile = (z, x, y) => {
   if (z < 6) {
     return '0-0-0.mbtiles'
