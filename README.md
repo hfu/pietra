@@ -32,10 +32,27 @@ resource.json is a root response for ArcGIS Server Web Service.
 style.json is a Mapbox Style description for Mapbox GL JS. Some parts are automatically modified by this script, as in tsunagi.
 
 ## Usage
+### configure
 ```console
 $ vi config/default.hjson
+```
+
+### start the service
+```console
 $ pm2 start index.js
 ```
+
+### monitor the service
+```console
+$ pm2 monit
+```
+See pm2 documents for details.
+
+### stop the service
+```console
+$ pm2 stop all
+```
+See pm2 documents for details.
 
 ## font serving
 Fonts stored in fonts directory are served. See index.js for details.
