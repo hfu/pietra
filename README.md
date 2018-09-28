@@ -1,11 +1,12 @@
 # pietra
-tsunagi plus modulalized mbtiles server as in tile-block
+modularized mbtiles server with ArcGIS Server Web Service interoperability for vector tiles
 
 ## Background
-I wanted have a tsunagi-based vector tiles server that can work with modulalized mbtiles. This was for developing a vector tile Proof-of-Concept named prototype10.
+I wanted have a tsunagi-based vector tiles server that can work with modulalized mbtiles. Pietra is for a vector tile Proof-of-Concept named prototype10.
 
 ## Install
 ```console
+$ npm install -g pm2
 $ git clone git@github.com:hfu/pietra
 $ cd pietra
 $ npm install
@@ -18,7 +19,7 @@ You need to have a configuration file normally at config/default.hjson like the 
   key: somewhere/privkey.pem
   cert: somewhere/fullchain.pem
   ca: somewhere/chain.pem
-  port: 8800
+  port: 8808
   name: OpenStreetMap_v2
   resource: somewhere/resource.json
   style: somewhere/style.json 
@@ -31,13 +32,30 @@ resource.json is a root response for ArcGIS Server Web Service.
 style.json is a Mapbox Style description for Mapbox GL JS. Some parts are automatically modified by this script, as in tsunagi.
 
 ## Usage
+### configure
 ```console
 $ vi config/default.hjson
-$ node index.js {port}
 ```
 
-## TODO
-- We need to add work on glyphs.
+### start the service
+```console
+$ pm2 start index.js
+```
+
+### monitor the service
+```console
+$ pm2 monit
+```
+See pm2 documents for details.
+
+### stop the service
+```console
+$ pm2 stop all
+```
+See pm2 documents for details.
+
+## font serving
+Fonts stored in fonts directory are served. See index.js for details.
 
 ## License of Noto Fonts
 This repository contains NotoSansCJKjp-Regular in fonts/sans. The license of the Noto Fonts is as below. 
