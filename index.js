@@ -35,30 +35,6 @@ const scanFiles = () => {
 }
 scanFiles()
 
-/*
-app.get('/', (req, res) => {
-  res.set('content-type', 'text/html')
-  res.send(`\
-<html>
-<body>
-<h2>pietra</h2>
-hi.
-<ul>
-<li><a href="${servicePath}">${servicePath}</a></li>
-<li><a href="/mbtiles">mbtiles metadata</a></li>
-<li><a href="/eject">eject mbtiles</a></li>
-</ul>
-</body>
-</html>`)
-})
-*/
-
-app.get('/eject', (req, res) => {
-  scanFiles()
-  res.set('content-type', 'text/html')
-  res.send('<body>Ejected. See <a href="/mbtiles">mbtiles</a></body>')
-})
-
 app.get('/mbtiles', (req, res) => {
   res.set('content-type', 'text/plain')
   res.send(JSON.stringify(mbtiles, null, 2))
@@ -73,7 +49,6 @@ app.get(`${servicePath}/resources/styles/root.json`, (req, res) => {
   let root = JSON.parse(fs.readFileSync(config.get('style')))
   root.sprite = '../sprites/sprite'
   root.glyphs = '../fonts/{fontstack}/{range}.pbf'
-  // root.sources = {}
   root.sources[config.get('source')] = {type: 'vector', url: '../../' }
   res.set('content-type', 'application/json')
   res.send(JSON.stringify(root, null, 2))
