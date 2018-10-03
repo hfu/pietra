@@ -67,7 +67,8 @@ app.get(`${servicePath}/resources/sprites/sprite.png`, (req, res) => {
 app.get(`${servicePath}/resources/fonts/:fontstack/:range.pbf`, (req, res) => {
   res.set('content-type', 'application/x-protpbuf')
   res.set('content-encoding', 'gzip')
-  res.send(fs.readFileSync(`fonts/${req.params.fontstack}/${req.params.range}.pbf.gz`))
+  // res.send(fs.readFileSync(`fonts/${req.params.fontstack}/${req.params.range}.pbf.gz`))
+  res.send(fs.readFileSync(`fonts/sans/${req.params.range}.pbf.gz`))
 })
 
 app.get(`/fonts/:fontstack/:range.pbf`, (req, res) => {
