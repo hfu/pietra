@@ -20,7 +20,6 @@ You need to have a configuration file normally at config/default.hjson like the 
   cert: somewhere/fullchain.pem
   ca: somewhere/chain.pem
   port: 8808
-  name: OpenStreetMap_v2
   resource: somewhere/resource.json
   style: somewhere/style.json 
   sprite: config/sprite

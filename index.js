@@ -6,7 +6,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const MBTiles = require('@mapbox/mbtiles')
 const config = require('config')
-const servicePath = `/arcgis/rest/services/${config.get('name')}/VectorTileServer`
+const servicePath = `/arcgis/rest/services/:name/VectorTileServer`
 
 const app = express()
 app.use(cors())
