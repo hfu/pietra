@@ -47,8 +47,9 @@ app.get(servicePath, (req, res) => {
 
 app.get(`${servicePath}/resources/styles/root.json`, (req, res) => {
   let root = JSON.parse(fs.readFileSync(config.get('style')))
-  root.sprite = '../sprites/sprite'
-  root.glyphs = '../fonts/{fontstack}/{range}.pbf'
+  // root.sprite = '../sprites/sprite'
+  root.sprite = root.sprites
+  // root.glyphs = '../fonts/{fontstack}/{range}.pbf'
   root.sources[config.get('source')] = {type: 'vector', url: '../../' }
   res.set('content-type', 'application/json')
   res.send(JSON.stringify(root, null, 2))
